@@ -2,9 +2,39 @@ import React, { useState, useEffect } from 'react';
 import API from "../utils/API";
 import GlobalContext from "../utils/GlobalContext";
 import EmployeeTable from "./EmployeeTable";
+import searchContext from '../utils/SearchContext';
 import "../styles/style.css";
 
 const ContextArea = () => {
+
+    const [users, setUsers] = useState([]);
+    const [searches, setSearch] = useState({
+        search: "",
+        type: "all",
+        onClick: (search) => {
+            setSearch({
+                ...searches,
+                search
+            });
+        },
+        onChange: (type, search) => {
+            if (type === "search" && search === "") {
+                type = "all";
+            }
+            setSearch({
+                ...searches,
+                search,
+                type
+            });
+        }
+    })
+
+    useEffect(() => {
+        API.getUsers()
+            .then((res) => {
+                setUsers(res);
+            })
+    }, []);
 
     const [developerState, setDeveloperState] = useState({
         users: [],
@@ -102,11 +132,12 @@ const ContextArea = () => {
 
 
     return (
-        <GlobalContext.Provider value={{ developerState, handleSearchChange, handleSort }} >
-            <div className="employeetable">
-                {developerState.filteredUsers.length > 0 ? <EmployeeTable /> : <div></div>}
-            </div>
-
+        <GlobalContext.Provider value={{ developerState, handleSort }} >
+            <searchContext.Provider value={searches}>
+                <div className="employeetable">
+                    {developerState.filteredUsers.length > 0 ? <EmployeeTable /> : <div></div>}
+                </div>
+            </searchContext.Provider>
         </GlobalContext.Provider>
 
     );
