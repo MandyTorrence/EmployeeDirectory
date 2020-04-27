@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import "../styles/style.css";
-import GlobalContext from "../utils/GlobalContext";
+import searchContext from '../utils/SearchContext';
 
 const SearchBar = () => {
-    const context = useContext(GlobalContext);
+    const searches = useContext(searchContext);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -15,7 +15,7 @@ const SearchBar = () => {
                     <div className="searchform">
                         <div className="searchlabel"><i className="fas fa-search"></i> Search Directory:</div>
                         <div className="searchinput">
-                            <input className="form-control" type="search" placeholder="name" aria-label="Search" onSearchChange={e => context.handleSearchChange()} />
+                            <input className="form-control" type="search" onChange={(event) => searches.onChange("search", event.target.value)} placeholder="Search for a name" aria-label="Search" />
                         </div>
                     </div>
                 </div>
