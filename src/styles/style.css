@@ -1,0 +1,144 @@
+body {
+    background-image: url('../Images/OfficeEnvironmentBackground.jpg');
+    background-position: top;
+    background-size:contain;
+    background-repeat: no-repeat;
+    padding: 0px;
+}
+
+.header {
+    background-image: linear-gradient(to right, rgba(135, 247, 5, 0.8), rgba(0, 156, 151, 0.8));
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.searchbar {
+    background: rgba(0,0,0,0.75);
+    padding: 30px 50px;
+    display: flex;
+}
+
+.searchform {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+.searchlabel {
+    color: #fff;
+    font-size: 20px;
+    padding-right: 15px;
+    width: 200px;
+}
+.searchinput{
+    width: 100%;
+}
+.searchinput input{
+    height: 40px;
+    width: 100%;
+}
+button.navbar-toggler {
+    display: none;
+}
+header h1{
+    font-size: 3em;
+}
+
+input[type="search"] {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+}
+.employeetable {
+    background: #fff;
+}
+
+table#table {
+    max-width: 1000px;
+    display: block;
+    margin: auto;
+}
+thead {
+    background-image: linear-gradient(to top, #32aea3 4px, #fff 4px);
+
+}
+thead tr{
+    text-align: left;
+    text-transform: uppercase;
+    border: 1px solid #000;
+    line-height: 4;
+}
+
+table,tbody tr, tbody td{
+    border-spacing: 0
+}
+
+tbody  tr:hover {
+    background-color: #a7ff0040;
+    }
+
+    .employeetable {
+        background: #fff;
+    }
+    
+    table#table {
+        width: 1200px;
+        max-width: 90vw;
+    }
+    
+    @media only screen and (max-width: 767px){
+    .searchform {
+        flex-wrap: wrap;
+    }
+    
+    .header {
+        padding: 50px;
+    }
+    thead tr{
+        display: flex;
+        border:0;
+        justify-content: space-between;
+        width: 90vw;
+    }
+    tbody{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    thead tr{
+        width: 20!important;
+    }
+    tbody tr {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        ovreflow: hidden;
+        width: 50%;
+        margin-bottom: 30px;
+        margin-top: 10px;
+    }
+    tbody tr td{
+        width: 100%;
+        padding-left: 80px;
+    }
+    tbody tr td:first-child{
+        position: absolute;
+        left: -80px;
+    }
+    tbody tr td:nth-child(2){
+        font-weight: bold;
+    }
+    }
+    
+    @media only screen and (max-width: 680px){
+        thead{
+            font-size: 12px;
+        }
+    tbody tr {
+        width: 100%;
+    }
+    }
+
+    .searchform {
+        max-width: 1200px;
+        margin: auto;
+    }

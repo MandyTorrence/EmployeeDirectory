@@ -5,13 +5,14 @@ import EmployeeTable from './components/EmployeeTable';
 import "./styles/style.css";
 
 import './App.css';
+import ContextArea from './components/ContextArea';
 
 function App() {
   return (
     <div className="wrapper">
       <Header />
       <SearchBar />
-      <EmployeeTable />
+      <ContextArea />
     </div>
   );
 }
